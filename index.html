@@ -1,100 +1,33 @@
-<!doctype html>
-<p class="muted">Celal'in en popüler gönderileri ve etkinlikleri</p>
-<div class="stats" role="list">
-<div class="stat" role="listitem"><div style="font-weight:800;font-size:20px">1.2k</div><div class="muted">Üye</div></div>
-<div class="stat" role="listitem"><div style="font-weight:800;font-size:20px">89</div><div class="muted">Etkinlik</div></div>
-<div class="stat" role="listitem"><div style="font-weight:800;font-size:20px">4.9</div><div class="muted">Ortalama Puan</div></div>
-</div>
-
-
-<div style="margin-top:14px">
-<label for="newsletter" class="muted">Bültene kayıt ol</label>
-<div style="display:flex;gap:8px;margin-top:8px">
-<input id="newsletter" placeholder="E-posta adresin" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" />
-<button class="btn" id="join-btn">Katıl</button>
-</div>
-</div>
-</aside>
-</main>
-
-
-<section class="card" id="about" style="margin-top:28px">
-<h2>Hakkında</h2>
-<p class="muted">Celal Gay, LGBT+ dostu bir dijital buluşma alanı örneği olarak tasarlandı. Bu demo site; profil, topluluk, etkinlik ve gizlilik odaklı özelliklerin örnek arayüzünü sunar.</p>
-
-
-<div id="signup" style="margin-top:14px">
-<h3>Kayıt</h3>
-<form onsubmit="handleSignup(event)" aria-label="Kayıt formu">
-<div style="display:flex;gap:8px;flex-wrap:wrap">
-<input required placeholder="Kullanıcı adı" id="username" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" />
-<input required placeholder="E-posta" id="email" type="email" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" />
-</div>
-<div style="margin-top:10px">
-<button class="btn" type="submit">Hesap oluştur</button>
-</div>
-</form>
-<div id="signup-result" class="muted" style="margin-top:10px"></div>
-</div>
-</section>
-
-
-<section class="card" id="contact" style="margin-top:18px">
-<h3>İletişim</h3>
-<p class="muted">Soruların mı var? Aşağıdan bize mesaj bırakabilirsin.</p>
-<form onsubmit="handleContact(event)">
-<div style="display:grid;grid-template-columns:1fr 200px;gap:8px">
-<input id="c-name" placeholder="İsim" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" />
-<input id="c-email" placeholder="E-posta" type="email" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" />
-</div>
-<div style="margin-top:8px">
-<textarea id="c-message" placeholder="Mesajın" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;min-height:120px"></textarea>
-</div>
-<div style="margin-top:8px"><button class="btn" type="submit">Gönder</button></div>
-<div id="contact-result" class="muted" style="margin-top:8px"></div>
-</form>
-</section>
-
-
-<footer>
-© <span id="year"></span> Celal Gay — Taslak demo. Tüm hakları saklıdır.
-</footer>
-</div>
-
-
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
-
-
-function handleSignup(e){
-e.preventDefault();
-const u = document.getElementById('username').value.trim();
-const em = document.getElementById('email').value.trim();
-// Demo: gerçek bir backend yok. Burada örnek doğrulama gösteriyoruz.
-const out = document.getElementById('signup-result');
-if(!u || !em){ out.textContent = 'Lütfen tüm alanları doldurun.'; return }
-out.textContent = `Teşekkürler ${u}! Kayıt isteğiniz alındı (demo).`;
-}
-
-
-function handleContact(e){
-e.preventDefault();
-const name = document.getElementById('c-name').value.trim();
-const email = document.getElementById('c-email').value.trim();
-const msg = document.getElementById('c-message').value.trim();
-const out = document.getElementById('contact-result');
-if(!name||!email||!msg){ out.textContent = 'Lütfen tüm alanları doldurun.'; return }
-out.textContent = 'Mesajınız demo olarak kaydedildi. Teşekkürler!';
-}
-
-
-// Basit erişilebilirlik: Enter ile bültene gönder
-document.getElementById('join-btn').addEventListener('click', ()=>{
-const val = document.getElementById('newsletter').value.trim();
-const out = document.getElementById('signup-result');
-if(!val) { out.textContent = 'Lütfen e-posta girin.'; return }
-out.textContent = 'Bültene kaydınız demo olarak alındı.';
-});
-</script>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Celal Gay</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #111;
+      color: white;
+    }
+    img {
+      max-width: 80%;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    }
+    h1 {
+      margin-top: 30px;
+      font-size: 2.5rem;
+      color: #f4c542;
+    }
+  </style>
+</head>
+<body>
+  <h1>Celal Gay Sitesi</h1>
+  <p>Hoş geldiniz!</p>
+  <img src="received_1813083438854063.jpg" alt="SILAYA Ölüm Şakası" />
 </body>
 </html>
